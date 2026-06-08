@@ -1,0 +1,10 @@
+{
+  "name": "vido",
+  "version": "1.0.0",
+  "description": "Local-only video sharing app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "MIT"
+}

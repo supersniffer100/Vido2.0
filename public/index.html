@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vido</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand-wrap">
+        <button id="home-link" class="brand-button" type="button">Vido</button>
+        <span class="beta-badge"><span class="version-number">2.0</span> <span class="beta-text">Beta</span></span>
+      </div>
+      <form id="search-form" class="search-form">
+        <input id="search-input" type="search" placeholder="Search videos" aria-label="Search videos" />
+      </form>
+      <nav class="nav-actions">
+        <button id="notifications-button" class="notification-button hidden" type="button" aria-label="Notifications">
+          Notifications <span id="notification-count" class="notification-count hidden">0</span>
+        </button>
+        <button id="studio-link" class="nav-button hidden" type="button">Studio</button>
+        <button id="account-button" class="nav-button" type="button">Account</button>
+      </nav>
+    </header>
+
+    <main id="app" class="app-shell"></main>
+    <p id="status" class="status" aria-live="polite"></p>
+
+    <dialog id="account-dialog" class="dialog">
+      <div class="dialog-shell">
+        <button id="close-account-dialog" class="icon-button" type="button" aria-label="Close account panel">X</button>
+        <div id="account-signed-in" class="account-panel hidden">
+          <h2 id="account-name"></h2>
+          <p id="account-meta"></p>
+          <form id="password-form" class="form-stack">
+            <label for="current-password">Current password</label>
+            <input id="current-password" type="password" autocomplete="current-password" />
+            <label for="new-password">New password</label>
+            <input id="new-password" type="password" autocomplete="new-password" minlength="4" required />
+            <button type="submit">Save password</button>
+          </form>
+          <button id="logout-button" class="danger-button" type="button">Log out</button>
+        </div>
+
+        <div id="account-signed-out" class="auth-grid">
+          <section>
+            <h2>Log in</h2>
+            <form id="login-form" class="form-stack">
+              <label for="login-name">Username</label>
+              <input id="login-name" maxlength="40" required />
+              <label for="login-password">Password</label>
+              <input id="login-password" type="password" autocomplete="current-password" />
+              <button type="submit">Log in</button>
+            </form>
+          </section>
+          <section>
+            <h2>Create account</h2>
+            <form id="signup-form" class="form-stack">
+              <label for="signup-name">Username</label>
+              <input id="signup-name" maxlength="40" required />
+              <label for="signup-password">Password</label>
+              <input id="signup-password" type="password" autocomplete="new-password" minlength="4" required />
+              <button type="submit">Sign up</button>
+            </form>
+          </section>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog id="notifications-dialog" class="dialog">
+      <div class="dialog-shell">
+        <button id="close-notifications-dialog" class="icon-button" type="button" aria-label="Close notifications">X</button>
+        <h2>Notifications</h2>
+        <div id="notifications-list" class="notifications-list"></div>
+      </div>
+    </dialog>
+
+    <dialog id="upload-dialog" class="dialog">
+      <div class="dialog-shell upload-dialog-shell">
+        <p id="upload-dialog-message" class="uploading-message">Uploading, Please wait...</p>
+        <form id="finish-upload-form" class="form-stack hidden">
+          <h2>Finish upload</h2>
+          <label for="finish-title">Video title</label>
+          <input id="finish-title" maxlength="100" required />
+          <label for="finish-description">Description</label>
+          <textarea id="finish-description" rows="5" maxlength="1000"></textarea>
+          <label for="finish-thumbnail">Thumbnail image</label>
+          <input id="finish-thumbnail" type="file" accept="image/png,image/jpeg,image/webp" />
+          <div class="button-row">
+            <button id="cancel-upload" class="secondary-button" type="button">Cancel</button>
+            <button type="submit">Finish</button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
